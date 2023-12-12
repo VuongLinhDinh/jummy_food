@@ -43,8 +43,7 @@ if (isset($_POST['submit'])) {
             $delete_cart->execute([$user_id]);
 
             $message[] = 'Order placed successfully!';
-            header('Location: home.php');
-            exit;
+            header('location: home.php');
         }
 
     } else {
@@ -132,17 +131,9 @@ if (isset($_POST['submit'])) {
          <option value="VN pay">VN pay</option>
       </select>
       <input type="submit" value="pay in Vnpay" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="send">
+      <input type="submit" value="order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="order">
    </div>
-</form>
-<?php 
-      if(isset($_POST['order'])) {
-         $message[] = 'Order placed successfully!';
-            header('Location: home.php');
-            exit;
-      }
-?>
-<form action="" method="post">
-          <input type="submit" value="order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="order">
+
 </form>
    
 </section>

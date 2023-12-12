@@ -140,7 +140,7 @@ if (isset($_POST['submit'])) {
             header('Location: home.php');
             exit;
       }
-?>
+      ?>
 <form action="" method="post">
           <input type="submit" value="order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="order">
 </form>
