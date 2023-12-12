@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
 
    <h1 class="title">order summary</h1>
 
-<form action="" method="post">
+<form action="payment.php" method="post">
 
    <div class="cart-items">
       <h3>cart items</h3>
@@ -133,11 +133,18 @@ if (isset($_POST['submit'])) {
          <option value="cash on delivery">cash on delivery</option>
          <option value="VN pay">VN pay</option>
       </select>
-      <input type="submit" value="order now!" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
+      <input type="submit" value="pay in Vnpay" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="send">
    </div>
 </form>
-<form action="payment.php" method="post">
-          <input type="submit" value="pay in Vnpay" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="send">
+<?php 
+      if(isset($_POST['order'])) {
+         $message[] = 'Order placed successfully!';
+            header('Location: home.php');
+            exit;
+      }
+?>
+<form action="" method="post">
+          <input type="submit" value="order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="order">
 </form>
    
 </section>

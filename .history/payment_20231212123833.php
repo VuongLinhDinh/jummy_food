@@ -1,5 +1,4 @@
 <?php 
-include 'components/connect.php';
 $grand_total = 0;
 $cart_items[] = '';
 $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
@@ -11,7 +10,6 @@ if($select_cart->rowCount() > 0){
       $grand_total += ($fetch_cart['price'] * $fetch_cart['quantity']);
     }
 }
-
 //
  if(isset($_POST['send'])) {
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
@@ -22,7 +20,7 @@ $vnp_HashSecret = "FLDOLVENSSAROJOMUKZDBWXFRTODKFZI"; //Chuỗi bí mật
 $vnp_TxnRef = rand(00, 9999); 
 $vnp_OrderInfo = 'Noi dung thanh toan';
 $vnp_OrderType = 'billpayment';
-$vnp_Amount = 10000 * 1000;
+$vnp_Amount = $grand_total;
 $vnp_Locale = 'VND';
 $vnp_BankCode = 'NCB';
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
@@ -80,4 +78,3 @@ $returnData = array('code' => '00'
 	// vui lòng tham khảo thêm tại code demo
  }
 ?>
-

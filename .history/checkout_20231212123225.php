@@ -133,11 +133,11 @@ if (isset($_POST['submit'])) {
          <option value="cash on delivery">cash on delivery</option>
          <option value="VN pay">VN pay</option>
       </select>
-      <input type="submit" value="order now!" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
+      <input type="submit" value="pay in Vnpay" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
    </div>
 </form>
 <form action="payment.php" method="post">
-          <input type="submit" value="pay in Vnpay" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="send">
+          <input type="submit" value="order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="send">
 </form>
    
 </section>
